@@ -21,7 +21,7 @@ yarn-error.log
 *.sublime-workspace
 
 # Visual Studio Code
-.vscode/*
+.vscode/**/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -40,3 +40,29 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+### Angular template
+## Angular ##
+# compiled output
+dist/
+tmp/
+app/**/*.js
+app/**/*.js.map
+
+# dependencies
+node_modules/
+bower_components/
+
+# misc
+connect.lock/
+coverage/
+libpeerconnection.log/
+typings/
+.angular/
+
+# e2e
+e2e/*.js
+e2e/*.map
+
+# System Files
+.DS_Store/
+
