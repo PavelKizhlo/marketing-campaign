@@ -15,7 +15,6 @@ import { MaterialModule } from '../material/material.module';
     MaterialModule,
   ],
   exports: [
-    CommonModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,

@@ -9,7 +9,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
 import { HttpClientModule } from '@angular/common/http';
+
 import { SharedModule } from './shared/shared.module';
+import { MarketingCampaignModule } from './marketing-campaign/marketing-campaign.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +21,8 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
+    AuthModule,
+    MarketingCampaignModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([]),

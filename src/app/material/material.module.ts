@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
-// Array of MatModules
-const ImportedMaterialModules = [MatInputModule];
+const ImportedMaterialModules = [
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule,
+];
 
 @NgModule({
   declarations: [],
