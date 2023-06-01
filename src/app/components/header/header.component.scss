@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  &__logo-block {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
