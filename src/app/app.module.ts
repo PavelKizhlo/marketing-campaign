@@ -9,10 +9,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { SharedModule } from './shared/shared.module';
-import { MarketingCampaignModule } from './marketing-campaign/marketing-campaign.module';
-import { AuthModule } from './auth/auth.module';
+import { MarketingCampaignComponent } from './components/pages/marketing-campaign-page/marketing-campaign.component';
+import { LoginPageComponent } from './components/pages/login-page/login-page.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,9 +20,9 @@ import { AuthModule } from './auth/auth.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SharedModule,
-    AuthModule,
-    MarketingCampaignModule,
+    BrowserAnimationsModule,
+    LoginPageComponent,
+    MarketingCampaignComponent,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([]),
