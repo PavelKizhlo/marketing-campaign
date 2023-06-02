@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MarketingCampaignComponent } from './components/pages/marketing-campaign-page/marketing-campaign.component';
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
+import { reducers } from './ngRx/state.model';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +24,7 @@ import { LoginPageComponent } from './components/pages/login-page/login-page.com
     BrowserAnimationsModule,
     LoginPageComponent,
     MarketingCampaignComponent,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot(reducers, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([]),
     EntityDataModule.forRoot(entityConfig),

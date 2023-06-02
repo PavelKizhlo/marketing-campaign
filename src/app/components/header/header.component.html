@@ -4,8 +4,15 @@
       mat-icon-button
       color="primary"
       aria-label="Example icon button with a menu icon"
-      (click)="emitOpenSidenav()">
-      <mat-icon>menu</mat-icon>
+      (click)="toggleSidenav()">
+      <mat-icon
+        *ngIf="sidenavOpened$ | async; else menuIcon"
+        class="back-icon"
+      >arrow_back_ios</mat-icon>
+
+      <ng-template #menuIcon>
+        <mat-icon>menu</mat-icon>
+      </ng-template>
     </button>
 
     <img
