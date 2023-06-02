@@ -8,6 +8,11 @@
     gap: 1rem;
   }
 
+  &__title {
+    margin: 0;
+    color: #673ab7;
+  }
+
   .back-icon {
     transform: translateX(25%);
   }
