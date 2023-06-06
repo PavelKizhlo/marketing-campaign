@@ -1,0 +1,13 @@
+.tab-group {
+  gap: 1rem;
+
+  ::ng-deep .mat-mdc-tab-body-wrapper {
+    height: 50px;
+  }
+}
+
+.tab-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
