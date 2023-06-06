@@ -1,9 +1,15 @@
 .page-header {
+  display: flex;
+  align-items: start;
+  gap: 2rem;
   height: auto;
-  padding-bottom: 2rem;
   border-bottom: 1px solid #bcbcbc
 }
 
 .filter-bar {
-  width: 100%;
+  flex-grow: 1;
+}
+
+.calendar {
+  width: 230px;
 }
