@@ -11,9 +11,9 @@ import { entityConfig } from './entity-metadata';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MarketingCampaignComponent } from './components/pages/marketing-campaign-page/marketing-campaign.component';
-import { LoginPageComponent } from './components/pages/login-page/login-page.component';
-import { reducers } from './ngRx/state.model';
+import { reducers } from './store/state.model';
+import { LoginPageComponent } from "./pages/login-page/login-page.component";
+import { VacanciesPageComponent } from "./pages/vacancies-page/vacancies-page.component";
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +23,7 @@ import { reducers } from './ngRx/state.model';
     HttpClientModule,
     BrowserAnimationsModule,
     LoginPageComponent,
-    MarketingCampaignComponent,
+    VacanciesPageComponent,
     StoreModule.forRoot(reducers, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([]),

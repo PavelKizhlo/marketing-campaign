@@ -1,5 +1,5 @@
 <div class="main-layout">
-  <app-header></app-header>
+  <ns-header></ns-header>
 
   <mat-sidenav-container class="container">
     <mat-sidenav class="sidenav" mode="side" [opened]="sidenavOpened$ | async">
@@ -15,7 +15,7 @@
     </mat-sidenav>
 
     <div class="example-sidenav-content">
-      <router-outlet></router-outlet>
+      <ng-content></ng-content>
     </div>
 
   </mat-sidenav-container>

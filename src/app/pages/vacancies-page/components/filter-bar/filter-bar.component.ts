@@ -14,7 +14,7 @@ export interface Filter {
 }
 
 @Component({
-  selector: 'app-filter-bar',
+  selector: 'ns-filter-bar',
   standalone: true,
   imports: [CommonModule, MatTabsModule, MatButtonModule, MatIconModule],
   templateUrl: './filter-bar.component.html',

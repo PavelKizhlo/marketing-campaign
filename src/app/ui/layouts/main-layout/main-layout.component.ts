@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { HeaderComponent } from '../../header/header.component';
-import { selectSidenavOpened } from '../../../ngRx/selectors/sidenav/sidenav.selector';
-import { StateModel } from '../../../ngRx/state.model';
+import { selectSidenavOpened } from '../../../store/selectors/sidenav/sidenav.selector';
+import { StateModel } from '../../../store/state.model';
 import { MatIconModule } from '@angular/material/icon';
 
 export interface SidenavLink {
@@ -18,7 +18,7 @@ export interface SidenavLink {
 }
 
 @Component({
-  selector: 'app-main-layout',
+  selector: 'ns-main-layout',
   standalone: true,
   imports: [
     CommonModule,
@@ -32,10 +32,10 @@ export interface SidenavLink {
   styleUrls: ['./main-layout.component.scss'],
 })
 export class MainLayoutComponent {
-  public sidenavOpened$: Observable<boolean> =
+  sidenavOpened$: Observable<boolean> =
     this.store.select(selectSidenavOpened);
 
-  public sidenavLinks: SidenavLink[] = [
+  sidenavLinks: SidenavLink[] = [
     {
       text: 'Search',
       link: '#',
