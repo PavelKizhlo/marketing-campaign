@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FilterBarComponent } from './components/filter-bar/filter-bar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CalendarComponent } from '../../ui/calendar/calendar.component';
-import { HeaderComponent } from "../../ui/header/header.component";
 import { MainLayoutComponent } from "../../ui/layouts/main-layout/main-layout.component";
 
 @Component({
@@ -14,7 +13,6 @@ import { MainLayoutComponent } from "../../ui/layouts/main-layout/main-layout.co
     FilterBarComponent,
     MatToolbarModule,
     CalendarComponent,
-    HeaderComponent,
     MainLayoutComponent,
   ],
   templateUrl: './vacancies-page.component.html',
