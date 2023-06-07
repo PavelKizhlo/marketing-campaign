@@ -10,6 +10,8 @@ import { HeaderComponent } from '../../header/header.component';
 import { selectSidenavOpened } from '../../../store/selectors/sidenav/sidenav.selector';
 import { StateModel } from '../../../store/state.model';
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from "@angular/material/list";
+import { MatLineModule } from "@angular/material/core";
 
 export interface SidenavLink {
   text: string;
@@ -27,6 +29,8 @@ export interface SidenavLink {
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
+    MatListModule,
+    MatLineModule,
   ],
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss'],
@@ -37,25 +41,31 @@ export class MainLayoutComponent {
 
   sidenavLinks: SidenavLink[] = [
     {
-      text: 'Search',
+      text: 'Vacancies',
       link: '#',
       matIcon: 'search',
     },
     {
-      text: 'My Profile',
+      text: 'Messages',
       link: '#',
       matIcon: 'account_circle',
     },
     {
-      text: 'Integrations',
-      link: '#',
-      matIcon: 'extension',
-    },
-    {
-      text: 'Export History',
+      text: 'Campaigns',
       link: '#',
       matIcon: 'download',
     },
+    {
+      text: 'Flows',
+      link: '#',
+      matIcon: 'download',
+    },
+    {
+      text: 'Bots',
+      link: '#',
+      matIcon: 'extension',
+    },
+
   ];
 
   constructor(private store: Store<StateModel>) {}

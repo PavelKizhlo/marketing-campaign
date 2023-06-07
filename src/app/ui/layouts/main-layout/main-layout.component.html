@@ -1,22 +1,16 @@
-<div class="main-layout">
-  <ns-header></ns-header>
+<ns-header></ns-header>
 
-  <mat-sidenav-container class="container">
-    <mat-sidenav class="sidenav" mode="side" [opened]="sidenavOpened$ | async">
-      <ul class="sidenav__list">
-        <li *ngFor="let link of sidenavLinks" class="sidenav__list-item">
-          <a class="sidenav__link" [routerLink]="link.link">
-            <mat-icon>{{ link.matIcon }}</mat-icon>
+<mat-sidenav-container class="container">
+  <mat-sidenav class="sidenav" mode="side" [opened]="sidenavOpened$ | async">
+    <mat-nav-list>
+      <a *ngFor="let link of sidenavLinks"
+         mat-list-item
+         [routerLink]="['/detail']">
+        <mat-icon matListItemIcon>folder</mat-icon>
+        <span>{{ link.text }}</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
 
-            <span>{{ link.text }}</span>
-          </a>
-        </li>
-      </ul>
-    </mat-sidenav>
-
-    <div class="example-sidenav-content">
-      <ng-content></ng-content>
-    </div>
-
-  </mat-sidenav-container>
-</div>
+  <ng-content></ng-content>
+</mat-sidenav-container>

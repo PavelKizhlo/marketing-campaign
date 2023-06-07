@@ -12,8 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { reducers } from './store/state.model';
-import { LoginPageComponent } from "./pages/login-page/login-page.component";
-import { VacanciesPageComponent } from "./pages/vacancies-page/vacancies-page.component";
+import { LoginPageComponent } from "./login-page/login-page.component";
+import { VacanciesPageComponent } from "./vacancy/vacancy-page/vacancies-page.component";
+import { MainLayoutComponent } from "./ui/layouts/main-layout/main-layout.component";
+import { MatToolbarModule } from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,9 +27,11 @@ import { VacanciesPageComponent } from "./pages/vacancies-page/vacancies-page.co
     LoginPageComponent,
     VacanciesPageComponent,
     StoreModule.forRoot(reducers, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
     EffectsModule.forRoot([]),
     EntityDataModule.forRoot(entityConfig),
+    MainLayoutComponent,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

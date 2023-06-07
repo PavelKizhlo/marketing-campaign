@@ -7,7 +7,5 @@ export enum SidenavActionsType {
 }
 
 export const openSidenavAction = createAction(SidenavActionsType.open);
-
 export const closeSidenavAction = createAction(SidenavActionsType.close);
-
 export const toggleSidenavAction = createAction(SidenavActionsType.toggle);

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FilterBarComponent } from './components/filter-bar/filter-bar.component';
+import { FilterBarComponent } from '../components/filter-bar/filter-bar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CalendarComponent } from '../../ui/calendar/calendar.component';
 import { MainLayoutComponent } from "../../ui/layouts/main-layout/main-layout.component";

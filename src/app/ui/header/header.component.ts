@@ -25,12 +25,12 @@ import { selectSidenavOpened } from '../../store/selectors/sidenav/sidenav.selec
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  public sidenavOpened$: Observable<boolean> =
-    this.store.select(selectSidenavOpened);
+   sidenavOpened$: Observable<boolean> =
+     this.store.select(selectSidenavOpened);
 
   constructor(private store: Store<StateModel>) {}
 
-  public toggleSidenav() {
+  toggleSidenav() {
     this.store.dispatch(toggleSidenavAction());
   }
 }

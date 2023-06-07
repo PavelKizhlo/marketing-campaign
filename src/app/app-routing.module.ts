@@ -1,18 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { VacanciesPageComponent } from "./pages/vacancies-page/vacancies-page.component";
-import { LoginPageComponent } from "./pages/login-page/login-page.component";
+import { VacanciesPageComponent } from "./vacancy/vacancy-page/vacancies-page.component";
+import { LoginPageComponent } from "./login-page/login-page.component";
+import { LoChatPageComponent } from "./linkedin-outreach/lo-chat-page/lo-chat-page.component";
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'vacancies-page',
+    redirectTo: 'vacancies',
     pathMatch: 'full',
   },
   {
-    path: 'vacancies-page',
+    path: 'vacancies',
     component: VacanciesPageComponent,
+  },
+  {
+    path: 'messages',
+    component: LoChatPageComponent,
   },
   { path: 'login', component: LoginPageComponent },
   { path: '**', redirectTo: 'marketing-campaign' },

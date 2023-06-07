@@ -21,7 +21,7 @@ export interface Filter {
   styleUrls: ['./filter-bar.component.scss'],
 })
 export class FilterBarComponent {
-  public savedFilterGroups: FilterGroup[] = [
+   savedFilterGroups: FilterGroup[] = [
     { name: 'New Search' },
     {
       name: 'Angular',
