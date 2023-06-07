@@ -1,6 +1,5 @@
 .container {
-  height: 100%;
-  flex-grow: 1;
+  height: calc(100% - 56px);
 }
 
 .mdc-list-item--with-leading-icon .mdc-list-item__start{

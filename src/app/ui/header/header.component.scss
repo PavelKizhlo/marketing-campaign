@@ -1,7 +1,17 @@
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height: 56px;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #bcbcbc;
+  position: relative;
+  box-shadow: 0 1px 4px 1px #0000001f;
+  z-index: 2;
+  background: #fff;
+
+
 
   &__logo-block {
     display: flex;
@@ -10,8 +20,10 @@
   }
 
   &__title {
-    margin: 0;
-    color: #673ab7;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: .2px;
+    color: #000000;
   }
 
   .back-icon {
