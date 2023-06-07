@@ -1,0 +1,31 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.lo-chat {
+  &__footer {
+    padding: 20px;
+  }
+
+  &__header {
+    padding: 20px;
+  }
+
+  &__scroll {
+    padding: 20px;
+    flex: 1 1 auto;
+    overflow-x: auto;
+  }
+
+  &__message {
+    margin-bottom: 20px;
+
+    &_inbox {
+      mat-card-subtitle {
+        color: #3f51b5;
+      }
+    }
+  }
+}

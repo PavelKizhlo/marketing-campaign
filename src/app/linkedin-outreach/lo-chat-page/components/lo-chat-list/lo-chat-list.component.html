@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="dataSource">
+<table mat-table [dataSource]="leadService.leads$()">
   <!-- Checkbox Column -->
   <ng-container matColumnDef="select">
     <th mat-header-cell *matHeaderCellDef>
@@ -14,7 +14,7 @@
   <ng-container matColumnDef="avatar">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let element">
-      <span class="lo-chat-list__avatar-wrapper" matBadge="15" matBadgeColor="warn" matBadgeSize="small" >
+      <span class="lo-chat-list__avatar-wrapper" [matBadge]="element.countNewMessages" matBadgeColor="warn" matBadgeSize="small">
         <img [src]="element.avatar" class="lo-chat-list__avatar">
       </span>
     </td>
@@ -26,27 +26,26 @@
       <span class="lo-chat-list__name">{{element.firstName}} {{element.lastName}}</span>
       <span class="lo-chat-list__job-title">{{element.jobTitle}}</span>
       <div class="lo-chat-list__message">
-        {{element.shortMessage}}
+        {{element.lastMessage}}
       </div>
     </td>
   </ng-container>
 
-  <ng-container matColumnDef="lastMessage">
+  <ng-container matColumnDef="lastMessageCreatedAt">
     <th mat-header-cell *matHeaderCellDef>Last Message</th>
     <td mat-cell *matCellDef="let element">
-      {{element.lastMessage}}
+      {{element.lastMessageCreatedAt}}
     </td>
   </ng-container>
 
   <ng-container matColumnDef="marketingCampaign">
     <th mat-header-cell *matHeaderCellDef>Marketing Campaign</th>
     <td mat-cell *matCellDef="let element">
-      {{element.marketingCampaign}}
+      {{element.marketingCampaignId}}
     </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-      (click)="selection.toggle(row)">
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/messages', {outlets: {side: ['create']}}]">
   </tr>
 </table>

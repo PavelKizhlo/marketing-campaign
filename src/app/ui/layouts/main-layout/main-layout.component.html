@@ -3,11 +3,31 @@
 <mat-sidenav-container class="container">
   <mat-sidenav class="sidenav" mode="side" [opened]="sidenavOpened$ | async">
     <mat-nav-list>
-      <a *ngFor="let link of sidenavLinks"
-         mat-list-item
+      <a mat-list-item
          [routerLink]="['/detail']">
         <mat-icon matListItemIcon>folder</mat-icon>
-        <span>{{ link.text }}</span>
+        <span>Vacancies</span>
+      </a>
+      <a mat-list-item
+
+         [routerLink]="['/messages']">
+        <mat-icon matListItemIcon>folder</mat-icon>
+        <span>Messages ({{countNewMessages$ | async}})</span>
+      </a>
+      <a mat-list-item
+         [routerLink]="['/campaigns']">
+        <mat-icon matListItemIcon>folder</mat-icon>
+        <span>Campaigns</span>
+      </a>
+      <a mat-list-item
+         [routerLink]="['/campaigns']">
+        <mat-icon matListItemIcon>folder</mat-icon>
+        <span>Flows</span>
+      </a>
+      <a mat-list-item
+         [routerLink]="['/campaigns']">
+        <mat-icon matListItemIcon>folder</mat-icon>
+        <span>Bots</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>

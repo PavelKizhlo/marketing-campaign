@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LeadService } from "./store/lead/lead.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'NeatSoft Tools';
+  constructor(leadService: LeadService) {
+    setInterval(() => {
+      leadService.loadCountNewMessages();
+    }, 2000)
+  }
 }

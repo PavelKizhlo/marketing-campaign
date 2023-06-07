@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
-import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { HeaderComponent } from '../../header/header.component';
@@ -12,6 +11,8 @@ import { StateModel } from '../../../store/state.model';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from "@angular/material/list";
 import { MatLineModule } from "@angular/material/core";
+import { MatBadgeModule } from "@angular/material/badge";
+import { LeadService } from "../../../store/lead/lead.service";
 
 export interface SidenavLink {
   text: string;
@@ -31,42 +32,18 @@ export interface SidenavLink {
     MatIconModule,
     MatListModule,
     MatLineModule,
+    MatBadgeModule,
   ],
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss'],
 })
 export class MainLayoutComponent {
-  sidenavOpened$: Observable<boolean> =
-    this.store.select(selectSidenavOpened);
+  sidenavOpened$ = this.store.select(selectSidenavOpened);
+  countNewMessages$ = this.leadService.countNewMessages$();
 
-  sidenavLinks: SidenavLink[] = [
-    {
-      text: 'Vacancies',
-      link: '#',
-      matIcon: 'search',
-    },
-    {
-      text: 'Messages',
-      link: '#',
-      matIcon: 'account_circle',
-    },
-    {
-      text: 'Campaigns',
-      link: '#',
-      matIcon: 'download',
-    },
-    {
-      text: 'Flows',
-      link: '#',
-      matIcon: 'download',
-    },
-    {
-      text: 'Bots',
-      link: '#',
-      matIcon: 'extension',
-    },
-
-  ];
-
-  constructor(private store: Store<StateModel>) {}
+  constructor(
+    private store: Store<StateModel>,
+    private leadService: LeadService
+  ) {
+  }
 }
