@@ -11,7 +11,7 @@ import {
 export class MessageEffect {
   loadMessages$ = createEffect(() => this.actions$.pipe(
       ofType(loadMessageAction),
-      exhaustMap(() => this.messageHttp.getAll()
+      exhaustMap(({leadId}) => this.messageHttp.getAll(leadId)
         .pipe(
           map((messages) => loadMessageSuccessAction({messages})),
           catchError((error) => of(loadMessageFailureAction({error}))),

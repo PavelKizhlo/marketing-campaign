@@ -20,7 +20,7 @@ const routes: Routes = [
     path: 'messages',
     component: LoChatPageComponent,
     children: [
-      {path: 'create', component: LoChatComponent, outlet: 'side'}
+      {path: ':leadId', component: LoChatComponent, outlet: 'side'}
     ]
   },
   { path: 'login', component: LoginPageComponent },

@@ -10,7 +10,8 @@ export class MessageHttp {
   constructor(private http: HttpClient) {
   }
 
-  getAll(): Observable<Message[]> {
-    return this.http.get<Message[]>('/api/linkedin-outreach/conversation');
+  getAll(leadId: number): Observable<Message[]> {
+    console.log(leadId);
+    return this.http.get<Message[]>(`/api/linkedin-outreach/lead/${leadId}/message`);
   }
 }

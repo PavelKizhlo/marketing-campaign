@@ -7,6 +7,6 @@ export enum MessageActionsType {
   loadFailure = '[Message] Load Failure',
 }
 
-export const loadMessageAction = createAction(MessageActionsType.load);
+export const loadMessageAction = createAction(MessageActionsType.load, props<{ leadId: number }>());
 export const loadMessageSuccessAction = createAction(MessageActionsType.loadSuccess, props<{ messages: Message[] }>());
 export const loadMessageFailureAction = createAction(MessageActionsType.loadFailure, props<{ error: any }>());

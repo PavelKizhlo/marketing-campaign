@@ -21,7 +21,7 @@ export const messageReducer = createReducer(
   initialState,
   on(loadMessageAction, (state) => ({...state, loading: true})),
   on(loadMessageSuccessAction, (state, {messages}) => {
-    return adapter.addMany(messages, {...state, selectedId: null, loading: false});
+    return adapter.setAll(messages, {...state, selectedId: null, loading: false});
   }),
   on(loadMessageFailureAction, (state) => ({...state, loading: false})),
 );
