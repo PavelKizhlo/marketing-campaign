@@ -5,11 +5,11 @@ import {
   loadCountNewMessagesSuccessAction,
   loadLeadAction,
   loadLeadFailureAction,
-  loadLeadSuccessAction
+  loadLeadSuccessAction, loadOneLeadSuccessAction, selectLeadAction
 } from "./lead.action";
 
 export interface LeadState extends EntityState<Lead> {
-  selectedId: string | null;
+  selectedId: number | null;
   countNewMessages: number;
   loading: boolean
 }
@@ -24,18 +24,21 @@ export const initialState: LeadState = adapter.getInitialState({
 
 export const leadReducer = createReducer(
   initialState,
+  on(selectLeadAction, (state, {id}) => ({...state, selectedId: id})),
   on(loadLeadAction, (state) => ({...state, loading: true})),
+  on(loadOneLeadSuccessAction, (state, {lead}) => {
+    return adapter.updateOne({id: lead.id, changes: lead}, {...state, loading: false});
+  }),
   on(loadLeadSuccessAction, (state, {leads}) => {
-    return adapter.addMany(leads, {...state, selectedId: null, loading: false});
+    return adapter.addMany(leads, {...state, loading: false});
   }),
   on(loadLeadFailureAction, (state) => ({...state, loading: false})),
-  on(loadCountNewMessagesSuccessAction, (state, {count}) => ({...state, countNewMessages: count})),
+  on(loadCountNewMessagesSuccessAction, (state, {count}) => ({...state})),
 );
 
 
-export const getSelectedId = (state: LeadState) => state.selectedId;
-export const getCountNewMessages = (state: LeadState) => state.countNewMessages;
-
+export const selectedId = (state: LeadState) => state.selectedId;
+export const countNewMessages = (state: LeadState) => state.countNewMessages;
 // get the selectors
 const {
   selectIds,

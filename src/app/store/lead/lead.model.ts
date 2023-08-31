@@ -14,4 +14,5 @@ export interface Lead {
   jobTitle: string;
   countNewMessages: number;
   avatar: string;
+  confirmLeadFlowItemId: number | null;
 }

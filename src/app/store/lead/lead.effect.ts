@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { of } from 'rxjs';
+import { of, switchMap } from 'rxjs';
 import { catchError, exhaustMap, map } from 'rxjs/operators';
 import { LeadHttp } from "./lead.http";
 import {
+  continueFlowAction, continueFlowSuccessAction,
   LeadRequestType,
-  loadCountNewMessagesAction, loadCountNewMessagesSuccessAction,
+  loadCountNewMessagesAction,
+  loadCountNewMessagesSuccessAction,
   loadLeadAction,
   loadLeadFailureAction,
-  loadLeadSuccessAction
+  loadLeadSuccessAction, loadOneLeadAction, loadOneLeadSuccessAction
 } from "./lead.action";
 
 @Injectable()
@@ -32,6 +34,24 @@ export class LeadEffect {
       exhaustMap(() => this.leadHttp.getCountNewMessages()
         .pipe(
           map((data) => loadCountNewMessagesSuccessAction(data)),
+        ))
+    )
+  );
+
+  loadLead$ = createEffect(() => this.actions$.pipe(
+      ofType(loadOneLeadAction),
+      exhaustMap(({id}) => this.leadHttp.getOneLead(id)
+        .pipe(
+          map((lead) => loadOneLeadSuccessAction({lead})),
+        ))
+    )
+  );
+
+  continueFlow$ = createEffect(() => this.actions$.pipe(
+      ofType(continueFlowAction),
+      exhaustMap(({id, status, leadId}) => this.leadHttp.continueFlow(id, status, leadId)
+        .pipe(
+          map(() => loadOneLeadAction({id: leadId})),
         ))
     )
   );

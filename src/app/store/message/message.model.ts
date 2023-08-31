@@ -13,6 +13,7 @@ export interface Message {
   leadId: number;
   status: string;
   createdAt: string;
+  dateOfMessage: string;
   updatedAt: string;
   lead: Lead | undefined;
   type: MessageTypes

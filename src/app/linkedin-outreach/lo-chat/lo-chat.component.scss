@@ -16,8 +16,28 @@ mat-card-header .mat-mdc-card-header-text {
 }
 
 .lo-chat {
+  &__confirm-flow {
+    display: flex;
+    flex-direction: row;
+
+    & > button {
+      margin-right: 5px;
+    }
+  }
+
   &__footer {
     padding: 20px;
+  }
+
+  &__header-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4050b5;
+    text-decoration: none;
+
+    &:hover {
+      color: red
+    }
   }
 
   &__header {
